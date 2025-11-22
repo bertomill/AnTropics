@@ -1,13 +1,14 @@
 import React from 'react';
-import {Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Text} from 'react-native';
 
-import HomeScreen from '../screens/HomeScreen';
-import BreakScreen from '../screens/BreakScreen';
-import CompanionScreen from '../screens/CompanionScreen';
-import StatsScreen from '../screens/StatsScreen';
-import PetScreen from '../screens/PetScreen';
+// Placeholder screens - we'll create these next
+const HomeScreen = () => <Text>Home</Text>;
+const BreakScreen = () => <Text>Break Time</Text>;
+const CompanionScreen = () => <Text>AI Companion</Text>;
+const StatsScreen = () => <Text>Stats & Progress</Text>;
+const PetScreen = () => <Text>Virtual Pet</Text>;
 
 const Tab = createBottomTabNavigator();
 
@@ -19,69 +20,33 @@ export default function AppNavigator() {
           tabBarActiveTintColor: '#4CAF50',
           tabBarInactiveTintColor: '#999',
           headerShown: true,
-          headerStyle: {
-            backgroundColor: '#4CAF50',
-          },
-          headerTintColor: '#FFF',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
         }}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
-          options={{
-            title: 'Tropic',
-            tabBarLabel: 'Home',
-            tabBarIcon: ({color, size}) => <TabIcon icon="🏠" color={color} />,
-          }}
+          options={{title: 'Tropic'}}
         />
         <Tab.Screen
           name="Break"
           component={BreakScreen}
-          options={{
-            title: 'Take a Break',
-            tabBarLabel: 'Exercise',
-            tabBarIcon: ({color, size}) => <TabIcon icon="🧘" color={color} />,
-          }}
+          options={{title: 'Take a Break'}}
         />
         <Tab.Screen
           name="Companion"
           component={CompanionScreen}
-          options={{
-            title: 'AI Companion',
-            tabBarLabel: 'Chat',
-            tabBarIcon: ({color, size}) => <TabIcon icon="💬" color={color} />,
-          }}
+          options={{title: 'AI Companion'}}
         />
         <Tab.Screen
           name="Pet"
           component={PetScreen}
-          options={{
-            title: 'My Companion',
-            tabBarLabel: 'Pet',
-            tabBarIcon: ({color, size}) => <TabIcon icon="🌱" color={color} />,
-          }}
+          options={{title: 'My Pet'}}
         />
         <Tab.Screen
           name="Stats"
           component={StatsScreen}
-          options={{
-            title: 'Progress',
-            tabBarLabel: 'Stats',
-            tabBarIcon: ({color, size}) => <TabIcon icon="📊" color={color} />,
-          }}
+          options={{title: 'Progress'}}
         />
       </Tab.Navigator>
     </NavigationContainer>
-  );
-}
-
-// Simple emoji-based tab icon component
-function TabIcon({icon, color}: {icon: string; color: string}) {
-  return (
-    <Text style={{fontSize: 24, opacity: color === '#4CAF50' ? 1 : 0.5}}>
-      {icon}
-    </Text>
   );
 }
